@@ -11,7 +11,7 @@ export const metadata: Metadata = buildMetadata(
 export default function Page() {
   return (
     <main className="min-h-screen bg-[#FAFAF9] pt-28">
-      <div className="mx-auto max-w-[1480px] px-5 py-16 sm:px-8 lg:px-12 lg:py-24">
+      <div className="mx-auto max-w-370 px-5 py-16 sm:px-8 lg:px-12 lg:py-24">
         <p className="text-xs font-bold uppercase tracking-[.2em] text-[#B45309]">
           For roofs & structures
         </p>

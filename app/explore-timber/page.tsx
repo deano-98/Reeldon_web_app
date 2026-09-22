@@ -26,7 +26,7 @@ export default function Page() {
   ] as const;
   return (
     <main className="min-h-screen bg-[#F5F5F4] pt-28">
-      <div className="mx-auto max-w-[1480px] px-5 py-16 sm:px-8 lg:px-12 lg:py-24">
+      <div className="mx-auto max-w-370 px-5 py-16 sm:px-8 lg:px-12 lg:py-24">
         <p className="text-xs font-bold uppercase tracking-[.2em] text-[#B45309]">
           Timber explorer
         </p>
