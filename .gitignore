@@ -1,0 +1,19 @@
+# dependencies
+/node_modules
+
+# Next.js
+/.next/
+/out/
+
+# production
+/build
+
+# local env files
+.env*.local
+
+# Vercel
+.vercel
+
+# misc
+.DS_Store
+*.pem
