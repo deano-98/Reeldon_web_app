@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { buildMetadata } from "@/lib/metadata";
+
+// Authentication is currently a presentational placeholder until the customer portal is connected.
 export const metadata: Metadata = buildMetadata(
   "Login",
   "Future Reeldon customer portal login.",
@@ -14,6 +16,7 @@ export default function Page() {
           Customer portal
         </p>
         <h1 className="mt-3 text-3xl font-black">Welcome back.</h1>
+        {/* Replace this prevented submit with the portal sign-in action when authentication is available. */}
         <form className="mt-8 space-y-5" onSubmit={(e) => e.preventDefault()}>
           <label className="block text-xs font-bold">
             Email

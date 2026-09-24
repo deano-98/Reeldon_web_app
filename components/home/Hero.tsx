@@ -26,18 +26,18 @@ export function Hero() {
               priority
             />
           </div>
-          <p className="mt-5 text-xs font-bold uppercase tracking-[.25em] text-[#B45309]">
+          <p className="mt-5 text-sm font-black uppercase tracking-[.25em] text-[#B45309]">
             Reeldon Timbers
           </p>
           <h1 className="text-balance my-7 text-5xl font-black leading-[.92] tracking-[-.06em] sm:text-7xl lg:text-[92px]">
             Reimagine Timber.
             <br />
-            <span className="font-medium italic text-[#B45309]">
+            <span className=" italic text-white">
               Reimagine Your World.
             </span>
           </h1>
 
-          <div className="mt-9 flex flex-row flex-wrap items-center justify-center gap-3">
+          {/* <div className="mt-9 flex flex-row flex-wrap items-center justify-center gap-3">
             <Link
               href="/get-a-quote"
               className="inline-flex items-center justify-center gap-2 rounded-xl bg-[#D97706] px-4 py-2.5 text-xs font-bold text-white transition-colors hover:bg-[#B45309] sm:px-6 sm:py-3.5 sm:text-sm"
@@ -50,9 +50,9 @@ export function Hero() {
             >
               Explore Timber
             </Link>
-          </div>
+          </div> */}
 
-          <div className="mx-auto mt-10 grid grid-cols-3 max-w-lg gap-2 sm:gap-3">
+          {/* <div className="mx-auto mt-10 grid grid-cols-3 max-w-lg gap-2 sm:gap-3">
             {[
               [ShieldCheck, "Honesty"],
               [Leaf, "Fair"],
@@ -68,7 +68,7 @@ export function Hero() {
                 </p>
               </div>
             ))}
-          </div>
+          </div> */}
         </div>
       </div>
     </section>

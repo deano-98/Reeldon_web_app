@@ -1,16 +1,16 @@
 import type { Product } from "@/types";
 export const primaryNav = [
-  ["Home", "/"],
   ["Structural Timber", "/structural-timber"],
   ["Explore Timber", "/explore-timber"],
-  ["Projects", "/projects"],
+  ["Aesthetic Timber", "/projects"],
   ["About Us", "/about"],
+  ["Contact", "/contact"]
+  ,
 ] as const;
 export const utilityNav = [
   ["CSR", "/csr"],
   ["Size Conversions", "/structural-timber/size-conversions"],
   ["Doors", "/projects/doors"],
-  ["Contact", "/contact"],
 ] as const;
 export const products: Product[] = [
   {

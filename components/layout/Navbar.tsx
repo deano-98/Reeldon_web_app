@@ -1,6 +1,7 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { ChevronDown, LogIn, Menu, ShoppingBag, X } from "lucide-react";
 import { primaryNav, utilityNav } from "@/lib/constants";
 import Image from "next/image";
@@ -9,13 +10,17 @@ export function Navbar() {
   const [open, setOpen] = useState(false);
   const [moreOpen, setMoreOpen] = useState(false);
   const moreRef = useRef<HTMLDivElement>(null);
+  const pathname = usePathname();
+
+  // Parent navigation remains active while a user visits one of its nested pages.
+  const isActive = (href: string) =>
+    href === "/"
+      ? pathname === href
+      : pathname === href || pathname.startsWith(`${href}/`);
 
   useEffect(() => {
     function closeMoreOnOutsideClick(event: PointerEvent) {
-      if (
-        moreRef.current &&
-        !moreRef.current.contains(event.target as Node)
-      ) {
+      if (moreRef.current && !moreRef.current.contains(event.target as Node)) {
         setMoreOpen(false);
       }
     }
@@ -63,7 +68,7 @@ export function Navbar() {
                 <Link
                   key={href}
                   href={href}
-                  className="focus-ring rounded-lg px-1 py-2 text-[12px] font-semibold text-[#2C1D11]/70 hover:text-[#2C1D11]"
+                  className={`focus-ring border-b-2 px-1 py-2 text-[12px] font-semibold text-[#2C1D11]/70 hover:text-[#2C1D11] ${isActive(href) ? "border-[#2C1D11] text-[#2C1D11]" : "border-transparent"}`}
                 >
                   {label}
                 </Link>
@@ -73,7 +78,7 @@ export function Navbar() {
                   type="button"
                   onClick={() => setMoreOpen((current) => !current)}
                   aria-expanded={moreOpen}
-                  className="focus-ring flex items-center gap-1 rounded-lg px-1 py-2 text-[12px] font-semibold text-[#2C1D11]/70"
+                  className={`focus-ring flex items-center gap-1 border-b-2 px-1 py-2 text-[12px] font-semibold text-[#2C1D11]/70 ${utilityNav.some(([, href]) => isActive(href)) ? "border-[#2C1D11] text-[#2C1D11]" : "border-transparent"}`}
                 >
                   More <ChevronDown size={13} />
                 </button>
@@ -89,7 +94,7 @@ export function Navbar() {
                       key={href}
                       href={href}
                       onClick={() => setMoreOpen(false)}
-                      className="block rounded-xl px-3 py-2.5 text-sm hover:bg-[#F5F5F4]"
+                      className={`block rounded-xl border-b-2 px-3 py-2.5 text-sm hover:bg-[#F5F5F4] ${isActive(href) ? "border-[#2C1D11] font-semibold" : "border-transparent"}`}
                     >
                       {label}
                     </Link>
@@ -139,7 +144,7 @@ export function Navbar() {
                   key={href}
                   href={href}
                   onClick={() => setOpen(false)}
-                  className="block border-b border-black/5 py-3.5 text-sm font-semibold"
+                  className={`block border-b-2 py-3.5 text-sm font-semibold ${isActive(href) ? "border-[#2C1D11]" : "border-black/5"}`}
                 >
                   {label}
                 </Link>

@@ -23,7 +23,7 @@ export function ProductCard({ product }: { product: Product }) {
           {product.description}
         </p>
         {product.sizes && (
-          <p className="mt-4 text-xs font-semibold text-[#2C1D11]/60">
+          <p className="mt-4 text-[12px] font-bold text-[#2C1D11]/60">
             Sizes: {product.sizes.join(" · ")} mm
           </p>
         )}

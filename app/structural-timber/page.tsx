@@ -3,6 +3,8 @@ import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import { buildMetadata } from "@/lib/metadata";
 import { ProductGrid } from "@/components/products/ProductGrid";
+
+// This route is the parent section for structural products and their size references.
 export const metadata: Metadata = buildMetadata(
   "Structural Timber",
   "Structural timber for roofs and structures: brandering, rafters, wall plates, fascia boards, purlins and beams.",
@@ -19,9 +21,15 @@ export default function Page() {
           Structural timber that carries the build.
         </h1>
         <p className="mt-6 max-w-3xl text-base leading-8 text-[#2C1D11]/60">
-          Reeldon&apos;s published range includes brandering, rafters, wall
-          plates, fascia boards, purlins and beams. Confirm current sizes and
-          specifications with sales.
+          Though often hidden from view, structural timber provides the core
+          strength that holds up residential and commercial builds. Used in
+          roofs, ceilings, lintels, and framework, it is the backbone of safe
+          construction. We supply strength-graded timber rated to handle
+          demanding structural loads with total reliability.
+          <br />
+          <br />
+          Speak with our sales representative to check available sizes and
+          specs.
         </p>
         <div className="mt-7 flex flex-wrap gap-3">
           <Link

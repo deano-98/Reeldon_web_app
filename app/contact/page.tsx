@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { buildMetadata, siteConfig } from "@/lib/metadata";
 import { Mail, MapPin, MessageCircle, Phone } from "lucide-react";
 import { QuoteForm } from "@/components/quote/QuoteForm";
+
+// Keep contact details sourced from siteConfig where possible so updates stay consistent across the site.
 export const metadata: Metadata = buildMetadata(
   "Contact Reeldon Timbers",
   "Contact Reeldon Timbers in Mutare for timber enquiries and project quotations.",

@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { buildMetadata } from "@/lib/metadata";
+
+// This route is reserved for a future quote-basket flow; the current journey starts at Get a Quote.
 export const metadata: Metadata = buildMetadata(
   "Quote Basket",
   "Frontend-ready quote basket placeholder.",

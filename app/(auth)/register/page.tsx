@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { buildMetadata } from "@/lib/metadata";
+
+// Registration is intentionally UI-only until the customer portal has a backing service.
 export const metadata: Metadata = buildMetadata(
   "Register",
   "Future Reeldon customer portal registration.",
@@ -14,6 +16,7 @@ export default function Page() {
           Customer portal
         </p>
         <h1 className="mt-3 text-3xl font-black">Create an account.</h1>
+        {/* Replace this prevented submit with account creation and validation when registration is connected. */}
         <form className="mt-8 space-y-5" onSubmit={(e) => e.preventDefault()}>
           <label className="block text-xs font-bold">
             Name

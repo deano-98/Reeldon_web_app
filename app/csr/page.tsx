@@ -1,12 +1,15 @@
 import type { Metadata } from "next";
 import { buildMetadata } from "@/lib/metadata";
 import { Leaf, Recycle, Users } from "lucide-react";
+
+// Review this content against the latest approved CSR and sustainability information.
 export const metadata: Metadata = buildMetadata(
   "CSR & Sustainability",
   "Reeldon environmental awareness, sustainable production and community support initiatives.",
   "/csr",
 );
 export default function Page() {
+  // Keeping icon, title, and body together makes CSR cards easy to add or update.
   const items = [
     [
       Leaf,

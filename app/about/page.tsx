@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { buildMetadata } from "@/lib/metadata";
 import { Users, ShieldCheck, HeartHandshake } from "lucide-react";
+
+// Company claims and values shown here should be reviewed against approved brand copy.
 export const metadata: Metadata = buildMetadata(
   "About Reeldon Timbers",
   "Learn about Reeldon Timbers, its family-business heritage, Mutare operation and people-first values.",

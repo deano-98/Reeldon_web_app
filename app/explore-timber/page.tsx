@@ -1,12 +1,15 @@
 import type { Metadata } from "next";
 import { buildMetadata } from "@/lib/metadata";
 import { Leaf, Ruler, TreePine } from "lucide-react";
+
+// The explorer cards are local content so this page remains a lightweight server component.
 export const metadata: Metadata = buildMetadata(
   "Explore Timber",
   "Explore timber applications, species and practical considerations with Reeldon Timbers.",
   "/explore-timber",
 );
 export default function Page() {
+  // Add or reorder material guidance here as the product catalogue expands.
   const items = [
     [
       Ruler,

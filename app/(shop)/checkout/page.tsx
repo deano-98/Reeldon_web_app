@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import { buildMetadata } from "@/lib/metadata";
+
+// Checkout remains a reserved route while Reeldon uses a sales-led quotation process.
 export const metadata: Metadata = buildMetadata(
   "Checkout",
   "Future checkout placeholder.",

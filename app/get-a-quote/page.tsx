@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { buildMetadata } from "@/lib/metadata";
 import { QuoteForm } from "@/components/quote/QuoteForm";
 import { QuoteSummary } from "@/components/quote/QuoteSummary";
+
+// This server page reads the selected product from the URL and passes it into both quote components.
 export const metadata: Metadata = buildMetadata(
   "Get a Quote",
   "Request a timber quote from Reeldon Timbers. Submit your product, dimensions, quantities and project requirements.",
@@ -13,6 +15,7 @@ export default async function Page({
   searchParams: Promise<{ product?: string }>;
 }) {
   const { product } = await searchParams;
+  // Door and product links encode the label so spaces and special characters survive the query string.
   const selected = product ? decodeURIComponent(product) : "";
   return (
     <main className="min-h-screen bg-[#FAFAF9] pt-28">
