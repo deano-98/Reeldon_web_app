@@ -3,6 +3,7 @@ export const primaryNav = [
   ["Structural Timber", "/structural-timber"],
   ["Explore Timber", "/explore-timber"],
   ["Aesthetic Timber", "/projects"],
+  ["Doors", "/projects/doors"],
   ["About Us", "/about"],
   ["Contact", "/contact"]
   ,
@@ -10,7 +11,6 @@ export const primaryNav = [
 export const utilityNav = [
   ["CSR", "/csr"],
   ["Size Conversions", "/structural-timber/size-conversions"],
-  ["Doors", "/projects/doors"],
 ] as const;
 export const products: Product[] = [
   {

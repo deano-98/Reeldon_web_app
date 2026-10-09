@@ -27,7 +27,7 @@ export function AwardsSection() {
       id="awards"
       className="border-y border-white/10 bg-[#2C1D11] text-white"
     >
-      <div className="mx-auto max-w-[1480px] px-5 py-7 sm:px-8 lg:px-12">
+      <div className="mx-auto max-w-370 px-5 py-7 sm:px-8 lg:px-12">
         <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
           {items.map(([Icon, title, body]) => (
             <div
@@ -44,10 +44,10 @@ export function AwardsSection() {
             </div>
           ))}
         </div>
-        <p className="mt-4 text-center text-[10px] text-white/30">
+        {/* <p className="mt-4 text-center text-[10px] text-white/30">
           Verify current certificates, awards and dates against official Reeldon
           documentation before publishing formal claims.
-        </p>
+        </p> */}
       </div>
     </section>
   );
