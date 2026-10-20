@@ -12,8 +12,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/projects/doors",
     "/structural-timber",
     "/structural-timber/size-conversions",
-    "/login",
-    "/register",
   ].map((path) => ({
     url: `${siteConfig.url}${path}`,
     lastModified: new Date(),

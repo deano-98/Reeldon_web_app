@@ -1,3 +1,4 @@
+/*
 import type { Metadata } from "next";
 import { buildMetadata } from "@/lib/metadata";
 
@@ -20,4 +21,11 @@ export default function Page() {
       </div>
     </main>
   );
+}
+*/
+
+import { notFound } from "next/navigation";
+
+export default function Page() {
+  notFound();
 }

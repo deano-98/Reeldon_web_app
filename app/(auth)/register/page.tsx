@@ -1,3 +1,4 @@
+/*
 import type { Metadata } from "next";
 import Link from "next/link";
 import { buildMetadata } from "@/lib/metadata";
@@ -16,7 +17,6 @@ export default function Page() {
           Customer portal
         </p>
         <h1 className="mt-3 text-3xl font-black">Create an account.</h1>
-        {/* Replace this prevented submit with account creation and validation when registration is connected. */}
         <form className="mt-8 space-y-5" onSubmit={(e) => e.preventDefault()}>
           <label className="block text-xs font-bold">
             Name
@@ -54,4 +54,11 @@ export default function Page() {
       </div>
     </main>
   );
+}
+*/
+
+import { notFound } from "next/navigation";
+
+export default function Page() {
+  notFound();
 }
