@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowUpRight, ShoppingBag } from "lucide-react";
+import { ArrowUpRight, ClipboardList } from "lucide-react";
 import type { Product } from "@/types";
 export function ProductCard({ product }: { product: Product }) {
   return (
@@ -31,7 +31,7 @@ export function ProductCard({ product }: { product: Product }) {
           href={`/get-a-quote?product=${encodeURIComponent(product.name)}`}
           className="mt-5 inline-flex items-center gap-2 rounded-xl bg-[#2C1D11] px-4 py-3 text-xs font-bold text-white"
         >
-          <ShoppingBag size={14} /> Add to Quote <ArrowUpRight size={14} />
+          <ClipboardList size={14} /> Request a Quote <ArrowUpRight size={14} />
         </Link>
       </div>
     </article>

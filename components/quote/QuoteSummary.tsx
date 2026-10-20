@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowLeft, ShoppingBag } from "lucide-react";
+import { ArrowLeft, ClipboardList } from "lucide-react";
 export function QuoteSummary({ product }: { product?: string }) {
   return product ? (
     <div className="rounded-3xl bg-[#2C1D11] p-6 text-white">
@@ -14,7 +14,7 @@ export function QuoteSummary({ product }: { product?: string }) {
   ) : (
     <div className="rounded-3xl border border-[#2C1D11]/8 bg-[#F5F5F4] p-6">
       <div className="flex items-center gap-3">
-        <ShoppingBag size={18} className="text-[#D97706]" />
+        <ClipboardList size={18} className="text-[#D97706]" />
         <p className="text-sm font-bold">No product pre-selected</p>
       </div>
       <p className="mt-2 text-sm leading-6 text-[#2C1D11]/55">

@@ -2,7 +2,7 @@
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { ChevronDown, LogIn, Menu, ShoppingBag, X } from "lucide-react";
+import { ChevronDown, Menu, X } from "lucide-react";
 import { primaryNav, utilityNav } from "@/lib/constants";
 import Image from "next/image";
 
@@ -105,23 +105,6 @@ export function Navbar() {
             <div className="hidden items-center gap-2 lg:flex">
               <Link
                 href="/get-a-quote"
-                aria-label="Quote basket"
-                className="relative rounded-xl p-2.5"
-              >
-                <ShoppingBag size={18} />
-                <span className="absolute -right-0.5 -top-0.5 flex h-4 min-w-4 items-center justify-center rounded-full bg-[#D97706] px-1 text-[9px] font-bold text-white">
-                  0
-                </span>
-              </Link>
-              <Link
-                href="/login"
-                aria-label="Login"
-                className="rounded-xl p-2.5"
-              >
-                <LogIn size={18} />
-              </Link>
-              <Link
-                href="/get-a-quote"
                 className="rounded-xl bg-[#D97706] px-4 py-2.5 text-xs font-bold text-white hover:bg-[#B45309]"
               >
                 Get a Quote
@@ -151,18 +134,11 @@ export function Navbar() {
               ))}
               <div className="flex gap-2 pt-4">
                 <Link
-                  href="/login"
-                  onClick={() => setOpen(false)}
-                  className="flex flex-1 items-center justify-center gap-2 rounded-xl border py-3 text-sm font-semibold"
-                >
-                  <LogIn size={16} /> Login
-                </Link>
-                <Link
                   href="/get-a-quote"
                   onClick={() => setOpen(false)}
-                  className="flex flex-1 items-center justify-center gap-2 rounded-xl bg-[#D97706] py-3 text-sm font-semibold text-white"
+                  className="flex w-full items-center justify-center rounded-xl bg-[#D97706] py-3 text-sm font-semibold text-white"
                 >
-                  <ShoppingBag size={16} /> Get a Quote
+                  Get a Quote
                 </Link>
               </div>
             </div>

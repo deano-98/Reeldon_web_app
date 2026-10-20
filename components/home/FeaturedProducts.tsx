@@ -24,7 +24,7 @@ export function FeaturedProducts() {
             Explore all timber <ArrowUpRight size={16} />
           </Link>
         </div>
-        <div className="mt-14 grid gap-5 md:grid-cols-2">
+        <div className="mt-14 grid max-w-6xl gap-5 md:grid-cols-2 lg:grid-cols-4">
           {products
             .filter((p) =>
               ["brandering", "mouldings", "doors", "decking"].includes(p.id),
@@ -32,7 +32,7 @@ export function FeaturedProducts() {
             .map((product) => (
               <article
                 key={product.id}
-                className="group overflow-hidden rounded-3xl border border-[#2C1D11]/8 bg-white"
+                className="group flex h-full flex-col overflow-hidden rounded-3xl border border-[#2C1D11]/8 bg-white"
               >
                 <div className="relative aspect-4/3 bg-[#F5F5F4]">
                   <Image
@@ -43,19 +43,19 @@ export function FeaturedProducts() {
                     className="object-cover transition duration-700 group-hover:scale-105"
                   />
                 </div>
-                <div className="p-6 sm:p-7">
+                <div className="flex h-full flex-col p-5">
                   <p className="text-[10px] font-bold uppercase tracking-[.18em] text-[#B45309]">
                     {product.category}
                   </p>
-                  <h3 className="mt-2 text-2xl font-bold">{product.name}</h3>
+                  <h3 className="mt-2 text-xl font-bold">{product.name}</h3>
                   <p className="mt-2 text-sm leading-6 text-[#2C1D11]/55">
                     {product.description}
                   </p>
                   <Link
                     href={`/get-a-quote?product=${encodeURIComponent(product.name)}`}
-                    className="mt-6 inline-flex items-center gap-2 rounded-xl bg-[#2C1D11] px-4 py-3 text-xs font-bold text-white"
+                    className="mt-auto inline-flex items-center gap-2 pt-6 text-xs font-bold text-[#B45309]"
                   >
-                    Add to Quote <ArrowUpRight size={14} />
+                    Request a Quote <ArrowUpRight size={14} />
                   </Link>
                 </div>
               </article>
