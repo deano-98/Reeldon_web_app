@@ -3,15 +3,23 @@ import Link from "next/link";
 import { ArrowUpRight, ClipboardList } from "lucide-react";
 import type { Product } from "@/types";
 export function ProductCard({ product }: { product: Product }) {
+  const isDoor = product.category === "Doors";
+
   return (
     <article className="group overflow-hidden rounded-3xl border border-[#2C1D11]/8 bg-white">
-      <div className="relative aspect-4/3 bg-[#F5F5F4]">
+      <div
+        className={`relative ${isDoor ? "aspect-3/4" : "aspect-4/3"} bg-[#F5F5F4]`}
+      >
         <Image
           src={product.image}
           alt={product.name}
           fill
-          sizes="(max-width:768px) 100vw,33vw"
-          className="object-cover transition duration-700 group-hover:scale-105"
+          sizes="(max-width:768px) 100vw, (max-width:1200px) 50vw, 33vw"
+          className={
+            isDoor
+              ? "object-contain p-4"
+              : "object-cover transition duration-700 group-hover:scale-105"
+          }
         />
       </div>
       <div className="p-6">

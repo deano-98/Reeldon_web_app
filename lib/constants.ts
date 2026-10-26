@@ -92,6 +92,60 @@ export const products: Product[] = [
     image: "/images/decking.png",
     category: "Aesthetic",
   },
+
+  // Doors
+
+  {
+    id: "4-panel-white-flush",
+    name: "4 Panel White Flush",
+    description: "Timber door with four flush panels in a white finish.",
+    image: "/doors/4_panel_white_flush.png",
+    sizes: ["2040 × 815"],
+    category: "Doors",
+  },
+  {
+    id: "6-panel-white-flush",
+    name: "6 Panel White Flush",
+    description: "Timber door with six flush panels in a white finish.",
+    image: "/doors/6_panel_white_flush.png",
+    sizes: ["2040 × 815"],
+    category: "Doors",
+  },
+  {
+    id: "6-panel-pine",
+    name: "6 Panel Pine",
+    description: "Timber door with six panels in a natural pine finish.",
+    image: "/doors/6_panel_pine.png",
+    sizes: ["2040 × 815"],
+    category: "Doors",
+  },
+  {
+    id: "6-panel-saligna",
+    name: "6 Panel Saligna",
+    description: "Timber door with six panels in a natural saligna finish.",
+    image: "/doors/6-panel_saligna.png",
+    sizes: ["2040 × 815"],
+    category: "Doors",
+  },
+  {
+    id: "8-panel-saligna",
+    name: "8 Panel Saligna",
+    description: "Timber door with eight panels in a natural saligna finish.",
+    image: "/doors/8_panel_saligna.png",
+    sizes: ["2040 × 815"],
+    category: "Doors",
+  },
+  {
+    id: "ukuome-flash",
+    name: "Ukuome Flash",
+    description: "Timber door with a unique ukuome flash design.",
+    image: "/doors/Ukuome_flash_door.png",
+    sizes: ["2040 × 815"],
+    category: "Doors",
+  },
+
+
+
 ];
 export const conversionRows = [
   ["38 × 38", "692.52", "115.42", "336", "2.911"],
