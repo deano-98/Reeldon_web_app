@@ -1,12 +1,19 @@
 import type { Product } from "@/types";
+export const mobileNavMotion = {
+  clipDurationMs: 680,
+  iconDurationMs: 360,
+  linkDurationMs: 340,
+  linkOpenDelayMs: 140,
+  linkStaggerMs: 50,
+} as const;
+
 export const primaryNav = [
+  ["About Us", "/about"],
   ["Structural Timber", "/structural-timber"],
-  ["Explore Timber", "/explore-timber"],
+  // ["Explore Timber", "/explore-timber"],
   ["Aesthetic Timber", "/projects"],
   ["Doors", "/projects/doors"],
-  ["About Us", "/about"],
-  ["Contact", "/contact"]
-  ,
+  ["Contact", "/contact"],
 ] as const;
 export const utilityNav = [
   ["CSR", "/csr"],
@@ -68,7 +75,6 @@ export const products: Product[] = [
 
   // Aesthetic products
 
-  
   {
     id: "mouldings",
     name: "Pine & Saligna Mouldings",
@@ -143,9 +149,6 @@ export const products: Product[] = [
     sizes: ["2040 × 815"],
     category: "Doors",
   },
-
-
-
 ];
 export const conversionRows = [
   ["38 × 38", "692.52", "115.42", "336", "2.911"],

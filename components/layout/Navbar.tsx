@@ -2,8 +2,8 @@
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { ChevronDown, Menu, X } from "lucide-react";
-import { primaryNav, utilityNav } from "@/lib/constants";
+import { ChevronDown } from "lucide-react";
+import { mobileNavMotion, primaryNav, utilityNav } from "@/lib/constants";
 import Image from "next/image";
 
 export function Navbar() {
@@ -30,16 +30,38 @@ export function Navbar() {
       document.removeEventListener("pointerdown", closeMoreOnOutsideClick);
   }, []);
 
+  useEffect(() => {
+    if (!open) return;
+
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+
+    function closeOnEscape(event: KeyboardEvent) {
+      if (event.key === "Escape") setOpen(false);
+    }
+
+    document.addEventListener("keydown", closeOnEscape);
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      document.removeEventListener("keydown", closeOnEscape);
+    };
+  }, [open]);
+
   return (
     <header className="fixed inset-x-0 top-0 z-50">
       <div className="mx-auto max-w-370 px-4 pt-4 sm:px-6 lg:px-8">
         <nav
-          className="glass rounded-2xl border border-black/5 px-4 py-3 shadow-[0_10px_40px_rgba(44,29,17,.08)]"
+          className={`${open ? "" : "glass"} relative rounded-2xl border px-4 py-3 shadow-[0_10px_40px_rgba(44,29,17,.08)] ${
+            open
+              ? "border-transparent bg-transparent shadow-none"
+              : "border-black/5"
+          }`}
           aria-label="Primary navigation"
         >
-          <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-2.5 sm:px-6">
+          <div className="relative z-10 mx-auto flex max-w-7xl items-center justify-between px-4 py-2.5 sm:px-6">
             <Link
               href="/"
+              onClick={() => setOpen(false)}
               className="focus-ring flex shrink-0 items-center gap-2.5 rounded-md py-1 transition-opacity hover:opacity-90"
               aria-label="Reeldon Timbers home"
             >
@@ -49,13 +71,19 @@ export function Navbar() {
                 alt="Reeldon Timbers logo"
                 width={34}
                 height={34}
-                className="h-7 w-7 object-contain sm:h-10 sm:w-10"
+                className={`h-7 w-7 object-contain transition-[filter] duration-300 sm:h-10 sm:w-10 ${
+                  open ? "brightness-0 invert" : ""
+                }`}
                 priority
               />
 
               {/* Stacked typographic mark with tight line-heights */}
               <div className="flex flex-col justify-center leading-none">
-                <span className="text-[11px] font-black tracking-tight text-neutral-900 sm:text-[12px]">
+                <span
+                  className={`text-[11px] font-black tracking-tight sm:text-[12px] ${
+                    open ? "text-white" : "text-neutral-900"
+                  }`}
+                >
                   REELDON
                 </span>
                 <span className="text-[7.5px] font-bold tracking-[0.2em] text-[#B45309] sm:text-[8px]">
@@ -112,37 +140,86 @@ export function Navbar() {
             </div>
             <button
               type="button"
-              onClick={() => setOpen(!open)}
+              onClick={() => setOpen((current) => !current)}
               aria-label={open ? "Close menu" : "Open menu"}
               aria-expanded={open}
-              className="rounded-xl p-2 lg:hidden"
+              aria-controls="mobile-navigation"
+              className={`focus-ring relative z-10 grid h-11 w-11 place-items-center rounded-xl transition-colors lg:hidden ${
+                open ? "text-white" : "text-[#2C1D11]"
+              }`}
             >
-              {open ? <X size={22} /> : <Menu size={22} />}
+              <span className="relative block h-6 w-6">
+                <span
+                  className={`absolute left-0 h-0.5 w-6 rounded-full bg-current transition-all duration-300 ease-in-out ${
+                    open ? "top-2.75 rotate-45" : "top-1.75"
+                  }`}
+                  style={{
+                    transitionDuration: `${mobileNavMotion.iconDurationMs}ms`,
+                  }}
+                />
+                <span
+                  className={`absolute left-0 h-0.5 w-6 rounded-full bg-current transition-all duration-300 ease-in-out ${
+                    open ? "top-2.75 -rotate-45" : "top-4.25"
+                  }`}
+                  style={{
+                    transitionDuration: `${mobileNavMotion.iconDurationMs}ms`,
+                  }}
+                />
+              </span>
             </button>
           </div>
-          {open && (
-            <div className="border-t border-black/5 pt-3 lg:hidden">
-              {[...primaryNav, ...utilityNav].map(([label, href]) => (
+          <div
+            id="mobile-navigation"
+            aria-hidden={!open}
+            inert={!open}
+            className="fixed inset-0 z-0 flex flex-col overflow-y-auto bg-[#2C1D11] px-8 pb-8 pt-28 text-white lg:hidden"
+            style={{
+              clipPath: open
+                ? "circle(150vmax at calc(100% - 46px) 42px)"
+                : "circle(0vmax at calc(100% - 46px) 42px)",
+              transition: `clip-path ${mobileNavMotion.clipDurationMs}ms cubic-bezier(0.22, 1, 0.36, 1)`,
+            }}
+          >
+            <div className="mx-auto flex w-full max-w-md flex-1 flex-col justify-center text-center">
+              {[...primaryNav, ...utilityNav].map(([label, href], index) => (
                 <Link
                   key={href}
                   href={href}
                   onClick={() => setOpen(false)}
-                  className={`block border-b-2 py-3.5 text-sm font-semibold ${isActive(href) ? "border-[#2C1D11]" : "border-black/5"}`}
+                  className={`block py-5 text-lg font-semibold transition-[opacity,transform,color] hover:text-[#FBBF24] ${
+                    isActive(href) ? "text-[#FBBF24]" : "text-white"
+                  } ${open ? "translate-x-0 opacity-100" : "translate-x-5 opacity-0"}`}
+                  style={{
+                    transitionDuration: `${mobileNavMotion.linkDurationMs}ms`,
+                    transitionDelay: open
+                      ? `${mobileNavMotion.linkOpenDelayMs + index * mobileNavMotion.linkStaggerMs}ms`
+                      : `${(primaryNav.length + utilityNav.length - index) * 20}ms`,
+                  }}
                 >
                   {label}
                 </Link>
               ))}
-              <div className="flex gap-2 pt-4">
+              <div
+                className={`pt-6 transition-[opacity,transform] ${
+                  open ? "translate-y-0 opacity-100" : "translate-y-3 opacity-0"
+                }`}
+                style={{
+                  transitionDuration: `${mobileNavMotion.linkDurationMs}ms`,
+                  transitionDelay: open
+                    ? `${mobileNavMotion.linkOpenDelayMs + (primaryNav.length + utilityNav.length) * mobileNavMotion.linkStaggerMs}ms`
+                    : "0ms",
+                }}
+              >
                 <Link
                   href="/get-a-quote"
                   onClick={() => setOpen(false)}
-                  className="flex w-full items-center justify-center rounded-xl bg-[#D97706] py-3 text-sm font-semibold text-white"
+                  className="flex w-full items-center justify-center rounded-xl bg-white py-3.5 text-sm font-bold text-[#2C1D11] transition-colors hover:bg-[#F5F5F4]"
                 >
                   Get a Quote
                 </Link>
               </div>
             </div>
-          )}
+          </div>
         </nav>
       </div>
     </header>

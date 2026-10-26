@@ -1,15 +1,17 @@
 import type { Metadata, Viewport } from "next";
-import { Inter } from "next/font/google";
+import { Vollkorn } from "next/font/google";
 import "./globals.css";
 import { LenisProvider } from "@/components/shared/LenisProvider";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { organizationJsonLd, siteConfig } from "@/lib/metadata";
 
-const inter = Inter({
+const vollkorn = Vollkorn({
   subsets: ["latin"],
   display: "swap",
-  variable: "--font-inter",
+  weight: "variable",
+  style: ["normal", "italic"],
+  variable: "--font-vollkorn",
   preload: true,
 });
 
@@ -52,11 +54,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html
-      lang="en"
-      className={inter.variable}
-      data-scroll-behavior="smooth"
-    >
+    <html lang="en" className={vollkorn.variable} data-scroll-behavior="smooth">
       <body>
         <script
           type="application/ld+json"
