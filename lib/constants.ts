@@ -9,8 +9,8 @@ export const mobileNavMotion = {
 
 export const primaryNav = [
   ["About Us", "/about"],
-  ["Structural Timber", "/structural-timber"],
   ["Explore Timber", "/explore-timber"],
+  ["Structural Timber", "/structural-timber"],
   ["Aesthetic Timber", "/projects"],
   ["Doors", "/projects/doors"],
   ["Contact", "/get-a-quote"],
