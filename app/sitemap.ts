@@ -7,8 +7,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/csr",
     // "/explore-timber",
     "/get-a-quote",
-    "/projects",
-    "/projects/doors",
+    "/asthetic-timber",
+    "/asthetic-timber/doors",
     "/structural-timber",
     "/structural-timber/size-conversions",
   ].map((path) => ({

@@ -36,6 +36,10 @@ export function Hero() {
               Reimagine Your World.
             </span>
           </h1>
+          
+
+          {/* two buttons with CTA for future use */}
+
 
           {/* <div className="mt-9 flex flex-row flex-wrap items-center justify-center gap-3">
             <Link
@@ -52,23 +56,7 @@ export function Hero() {
             </Link>
           </div> */}
 
-          {/* <div className="mx-auto mt-10 grid grid-cols-3 max-w-lg gap-2 sm:gap-3">
-            {[
-              [ShieldCheck, "Honesty"],
-              [Leaf, "Fair"],
-              [Sparkles, "Reliable"],
-            ].map(([Icon, label]) => (
-              <div
-                key={label as string}
-                className="rounded-xl border border-[#2C1D11]/8 bg-white/55 p-2.5 text-center backdrop-blur-md sm:rounded-2xl sm:p-4"
-              >
-                <Icon className="mx-auto h-4 w-4 text-[#B45309] sm:h-5 sm:w-5" />
-                <p className="mt-1 text-[10px] font-bold uppercase tracking-widest text-[#2C1D11]/70 sm:mt-2 sm:text-xs sm:tracking-[.15em]">
-                  {label as string}
-                </p>
-              </div>
-            ))}
-          </div> */}
+          
         </div>
       </div>
     </section>

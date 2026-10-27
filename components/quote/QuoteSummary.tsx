@@ -2,7 +2,7 @@ import Link from "next/link";
 import { ArrowLeft, ClipboardList } from "lucide-react";
 export function QuoteSummary({ product }: { product?: string }) {
   return product ? (
-    <div className="rounded-3xl bg-[#2C1D11] p-6 text-white">
+    <div className="rounded-3xl bg-[#2C1D11] p-6 text-white border border-white/10">
       <p className="text-[10px] font-bold uppercase tracking-[.18em] text-[#D97706]">
         Quote item
       </p>

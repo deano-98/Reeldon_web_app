@@ -11,8 +11,8 @@ export const primaryNav = [
   ["About Us", "/about"],
   ["Explore Timber", "/explore-timber"],
   ["Structural Timber", "/structural-timber"],
-  ["Aesthetic Timber", "/projects"],
-  ["Doors", "/projects/doors"],
+  ["Aesthetic Timber", "/asthetic-timber"],
+  ["Doors", "/asthetic-timber/doors"],
   ["Contact", "/get-a-quote"],
 ] as const;
 export const utilityNav = [

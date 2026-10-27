@@ -4,11 +4,11 @@ import { ArrowUpRight } from "lucide-react";
 import { buildMetadata } from "@/lib/metadata";
 import { ProductGrid } from "@/components/products/ProductGrid";
 
-// This page owns the aesthetic product section; door-specific content lives at /projects/doors.
+// This page owns the aesthetic product section; door-specific content lives at /asthetic-timber/doors.
 export const metadata: Metadata = buildMetadata(
   "Projects & Aesthetic Timber",
   "Explore Reeldon mouldings, decking and flooring applications.",
-  "/projects",
+  "/asthetic-timber",
 );
 export default function Page() {
   return (
@@ -25,7 +25,7 @@ export default function Page() {
           visual experience as well as the build.
         </p>
         <Link
-          href="/projects/doors"
+          href="/asthetic-timber/doors"
           className="mt-7 inline-flex items-center gap-2 rounded-xl border bg-white px-5 py-3 text-sm font-bold"
         >
           Explore doors <ArrowUpRight size={15} />

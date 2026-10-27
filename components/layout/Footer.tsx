@@ -45,7 +45,7 @@ export function Footer() {
             <div className="mt-5 flex flex-col gap-3 text-sm text-white/65">
               <Link href="/structural-timber">Structural Timber</Link>
               <Link href="/explore-timber">Explore Timber</Link>
-              <Link href="/projects">Projects</Link>
+              <Link href="/asthetic-timber">Aesthetic Timber</Link>
               <Link href="/about">About Us</Link>
               <Link href="/csr">CSR</Link>
             </div>

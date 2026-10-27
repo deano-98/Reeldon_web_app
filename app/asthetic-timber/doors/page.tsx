@@ -5,9 +5,8 @@ import { ProductGrid } from "@/components/products/ProductGrid";
 export const metadata: Metadata = buildMetadata(
   "Timber Doors",
   "Reeldon timber doors and framing, including batten, flush and panel designs in Pine and Saligna.",
-  "/projects/doors",
+  "/asthetic-timber/doors",
 );
-
 
 export default function Page() {
   return (
