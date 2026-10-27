@@ -22,6 +22,7 @@ export const metadata: Metadata = {
     template: "%s | Reeldon Timbers",
   },
   description: siteConfig.description,
+  icons: { icon: "/images/favicon.ico" },
   alternates: { canonical: siteConfig.url },
   openGraph: {
     type: "website",
