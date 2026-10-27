@@ -1,49 +1,104 @@
 import type { Metadata } from "next";
-import { buildMetadata } from "@/lib/metadata";
+import { buildMetadata, siteConfig } from "@/lib/metadata";
+import { Mail, MapPin, MessageCircle, Phone } from "lucide-react";
 import { QuoteForm } from "@/components/quote/QuoteForm";
 import { QuoteSummary } from "@/components/quote/QuoteSummary";
 
-// This server page reads the selected product from the URL and passes it into both quote components.
 export const metadata: Metadata = buildMetadata(
-  "Get a Quote",
-  "Request a timber quote from Reeldon Timbers. Submit your product, dimensions, quantities and project requirements.",
+  "Contact & Get a Quote",
+  "Contact Reeldon Timbers in Mutare or request a timber quote for your project.",
   "/get-a-quote",
 );
+
 export default async function Page({
   searchParams,
 }: {
   searchParams: Promise<{ product?: string }>;
 }) {
-  const { product } = await searchParams;
-  // Door and product links encode the label so spaces and special characters survive the query string.
-  const selected = product ? decodeURIComponent(product) : "";
+  const { product = "" } = await searchParams;
+
   return (
-    <main className="min-h-screen bg-[#FAFAF9] pt-28">
+    <main className="min-h-screen bg-[#2C1D11] pt-28 text-white">
       <div className="mx-auto max-w-370 px-5 py-16 sm:px-8 lg:px-12 lg:py-24">
-        <p className="text-xs font-bold uppercase tracking-[.2em] text-[#B45309]">
-          Project enquiry
+        <p className="text-xs font-bold uppercase tracking-[.2em] text-[#D97706]">
+          Contact &amp; project enquiries
         </p>
-        <h1 className="mt-4 text-balance text-5xl font-black tracking-tighter sm:text-6xl">
-          Let&apos;s price the timber.
-        </h1>
-        <p className="mt-5 max-w-2xl text-base leading-7 text-[#2C1D11]/60">
-          Tell us what you need. The more detail you provide, the easier it is
-          for the sales team to prepare an accurate response.
-        </p>
-        <div className="mt-12 grid gap-6 lg:grid-cols-[.65fr_1.35fr]">
-          <div className="space-y-5">
-            <QuoteSummary product={selected} />
-            <div className="rounded-3xl border bg-white p-6">
-              <p className="text-xs font-bold uppercase tracking-[.16em] text-[#B45309]">
-                Direct sales
-              </p>
-              <p className="mt-3 text-sm font-semibold">+263 775 091 885</p>
-              <p className="mt-1 text-sm text-[#2C1D11]/55">
-                sales@reeldon.co.zw
-              </p>
-            </div>
-          </div>
-          <QuoteForm initialProduct={selected} />
+        <div className="mt-4 grid gap-6 lg:grid-cols-[1fr_.7fr] lg:items-end">
+          <h1 className="text-balance text-5xl font-black tracking-[-.055em] sm:text-6xl lg:text-7xl">
+            Have a project in mind?
+          </h1>
+          <p className="max-w-xl text-base leading-8 text-white/65 lg:justify-self-end">
+            Tell us what you are building and the timber you need. Our team can
+            help with product enquiries and prepare a quote for your project.
+          </p>
+        </div>
+
+        <div className="mt-12 grid gap-8 lg:grid-cols-[.7fr_1.3fr] lg:gap-10">
+          <aside className="space-y-5">
+            <QuoteSummary product={product} />
+
+            <section className="rounded-3xl border border-white/10 bg-white/5 p-6">
+              <h2 className="text-xs font-bold uppercase tracking-[.16em] text-[#D97706]">
+                Contact Reeldon
+              </h2>
+              <div className="mt-5 space-y-5">
+                <a
+                  href={`tel:${siteConfig.phone.replaceAll(" ", "")}`}
+                  className="flex items-start gap-3 text-sm text-white/75 transition-colors hover:text-white"
+                >
+                  <Phone
+                    size={18}
+                    className="mt-0.5 shrink-0 text-[#D97706]"
+                    aria-hidden="true"
+                  />
+                  <span>{siteConfig.phone}</span>
+                </a>
+                <a
+                  href={`mailto:${siteConfig.email}`}
+                  className="flex items-start gap-3 text-sm text-white/75 transition-colors hover:text-white"
+                >
+                  <Mail
+                    size={18}
+                    className="mt-0.5 shrink-0 text-[#D97706]"
+                    aria-hidden="true"
+                  />
+                  <span>{siteConfig.email}</span>
+                </a>
+                <a
+                  href={`https://wa.me/${siteConfig.phone.replace(/\D/g, "")}`}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="flex items-start gap-3 text-sm text-white/75 transition-colors hover:text-white"
+                >
+                  <MessageCircle
+                    size={18}
+                    className="mt-0.5 shrink-0 text-[#D97706]"
+                    aria-hidden="true"
+                  />
+                  <span>Message Sales on WhatsApp</span>
+                </a>
+                <div className="flex items-start gap-3 text-sm leading-6 text-white/75">
+                  <MapPin
+                    size={18}
+                    className="mt-0.5 shrink-0 text-[#D97706]"
+                    aria-hidden="true"
+                  />
+                  <span>{siteConfig.address}</span>
+                </div>
+              </div>
+            </section>
+
+            <p className="px-1 text-xs leading-5 text-white/45">
+              Prefer to talk? Call or message Sales directly. For a detailed
+              quote, include product, quantity, dimensions and delivery
+              requirements in the form.
+            </p>
+          </aside>
+
+          <section aria-label="Request a timber quote">
+            <h2 className="sr-only">Request a timber quote</h2>
+            <QuoteForm initialProduct={product} />
+          </section>
         </div>
       </div>
     </main>

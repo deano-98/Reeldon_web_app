@@ -23,10 +23,10 @@ export function QuoteForm({
         <div className="flex h-14 w-14 items-center justify-center rounded-full bg-[#285943] text-white">
           <CheckCircle2 />
         </div>
-        <h2 className="mt-6 text-2xl font-black">Quote request received.</h2>
+        <h2 className="mt-6 text-2xl font-black">Demo submission complete.</h2>
         <p className="mt-3 max-w-md text-sm leading-6 text-[#2C1D11]/55">
-          This starter simulates submission. Connect the form to your database,
-          CRM or email service before production.
+          No request was sent. Connect this form to your email service, CRM or
+          backend before accepting real enquiries.
         </p>
         <button
           onClick={() => setSubmitted(false)}

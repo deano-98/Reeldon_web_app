@@ -124,7 +124,7 @@ export default function Page() {
             </p>
           </div>
           <Link
-            href="/contact"
+            href="/get-a-quote"
             className="inline-flex shrink-0 items-center justify-center gap-2 rounded-xl bg-[#2C1D11] px-5 py-3.5 text-sm font-bold text-white transition-colors hover:bg-[#285943] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#2C1D11]"
           >
             Contact Reeldon <ArrowUpRight size={16} aria-hidden="true" />
